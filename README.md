@@ -9,13 +9,13 @@
 
 ## 🔹 Swagger da aplicação
 
-![Swagger API](<img width="990" height="520" alt="Screenshot 2026-05-25 124953" src="https://github.com/user-attachments/assets/2f71e6e2-6c93-4e93-bd9c-748053f8de3c" />)
+![Produtos Memoria](Assets/ProdutosMemoriaImg.png)
 
 ---
 
 ## 🔹 Endpoints protegidos com JWT
 
-![JWT Swagger](<img width="974" height="468" alt="Screenshot 2026-05-25 124302" src="https://github.com/user-attachments/assets/8ee67e7f-4af9-4ca4-9635-f4dff45d1fb2" />)
+![Produtos Banco](Assets/ProdutosBancoImg.png)
 
 ---
 
