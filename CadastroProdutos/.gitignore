@@ -1,0 +1,55 @@
+```gitignore
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# ASP.NET Core
+appsettings.Development.json
+
+
+# Entity Framework
+Migrations/
+
+# NuGet
+*.nupkg
+packages/
+
+# Publish
+publish/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*.swp
+
+# Mac
+.DS_Store
+
+# Environment Variables
+.env
+
+# JWT / secrets
+secrets.json
+
+# Temporary files
+tmp/
+temp/
+```

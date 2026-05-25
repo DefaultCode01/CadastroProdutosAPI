@@ -1,0 +1,99 @@
+using System.Linq.Expressions;
+using CadastroProdutos.Services;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using CadastroProdutos.Models;
+
+namespace CadastroProdutos.Controllers
+{
+    [Authorize]
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ProdutosController : ControllerBase
+    {
+        private IProdutosService produtosService;
+        public ProdutosController(IProdutosService produtosService)
+        {
+            this.produtosService = produtosService;
+        }
+
+
+       
+        [HttpGet]
+        public ActionResult<List<Produto>> Get()
+        {
+            return Ok(produtosService.ObterTodos());
+        }
+
+
+        [HttpGet("{id}")]
+        public ActionResult<Produto> GetById(int id)
+        {
+            var produto = produtosService.ObterPorId;
+
+            if (produto is null)
+            {
+                return NotFound($"produto com ID {id} não encontrado");
+            }
+
+            return Ok(produto);
+        }  
+
+        [Authorize(Roles ="admin")]
+        [HttpPost]
+        public ActionResult Post(Produto novoProduto)
+        {
+            try
+            {
+                produtosService.Adicionar(novoProduto);
+
+                return Created();
+            }
+            catch(Exception exception)
+            {
+                return BadRequest(exception.Message); 
+            }
+           
+        }  
+
+        [Authorize(Roles ="admin")]
+         [HttpPut("{id}")]
+        public ActionResult<Produto> Put(int id, Produto produtoAtualizado)
+        {
+            try
+            {
+                var produto = produtosService.Atualizar(id, produtoAtualizado);
+                if (produto is null)
+                {
+                    return NotFound($"Produto com ID {id} não fi encontrado");
+                }
+                    
+                return Ok(produto);
+            }
+
+            catch(Exception exception)
+            {
+                return BadRequest(exception.Message); 
+            }
+
+        }  
+
+
+        [Authorize(Roles ="admin")]
+        [HttpDelete ("{id}")]
+        public ActionResult Delete(int id)
+        {
+            var deletou = produtosService.Remover(id);
+
+            if (deletou == false)
+            {
+                return NotFound($"produto com ID {id} não encontrado");
+            }
+            return NoContent();
+        }
+
+
+    }
+    
+}
