@@ -9,13 +9,13 @@
 
 ## 🔹 Swagger da aplicação
 
-![Produtos Memoria](Assets/ProdutosMemoriaImg.png)
+![Produtos Memoria](Assets/ProdutosMemoriaImg.PNG)
 
 ---
 
 ## 🔹 Endpoints protegidos com JWT
 
-![Produtos Banco](Assets/ProdutosBancoImg.png)
+![Produtos Banco](Assets/ProdutosBancoImg.PNG)
 
 ---
 
